@@ -1,0 +1,11 @@
+*.jl.cov
+*.jl.mem
+*.html
+examples/smi/data
+examples/sysid/data
+examples/matrixcompletion/data
+
+examples/smi/output
+examples/sysid/output
+examples/matrixcompletion/output
+.DS_Store
