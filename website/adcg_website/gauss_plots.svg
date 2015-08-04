@@ -1,0 +1,286 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with svg_stack (http://github.com/astraw/svg_stack) -->
+<svg xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gadfly="http://www.gadflyjl.org/ns" xmlns="http://www.w3.org/2000/svg" version="1.1" width="450.00000000000006" height="540.0">
+  <defs>
+    <clipPath id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-5">
+  <path d="M16.83,5 L 122 5 122 31.52 16.83 31.52"/>
+</clipPath>
+    <clipPath id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-5">
+  <path d="M16.83,5 L 122 5 122 31.52 16.83 31.52"/>
+</clipPath>
+    <clipPath id="id2:fig-d206682d14a34421be3309fbc40335f0-element-5">
+  <path d="M16.83,5 L 122 5 122 31.52 16.83 31.52"/>
+</clipPath>
+  </defs>
+  <g id="id0:id0" transform="matrix(3.54330708661,0,0,3.54330708661,0.0,0.0)"><g class="plotroot xscalable yscalable" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-2">
+    <text x="69.41" y="39.19" text-anchor="middle" dy="0.6em">x</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-3">
+    <text x="18.83" y="32.52" text-anchor="middle" dy="0.6em">-5</text>
+    <text x="69.41" y="32.52" text-anchor="middle" dy="0.6em">0</text>
+    <text x="120" y="32.52" text-anchor="middle" dy="0.6em">5</text>
+  </g>
+  <g clip-path="url(#id0:fig-409b26ae68694ed28a0c894be703c9a1-element-5)" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-4">
+    <g pointer-events="visible" opacity="1" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-6">
+      <rect x="16.83" y="5" width="105.17" height="26.52"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-7">
+      <path fill="none" d="M16.83,29.52 L 122 29.52"/>
+      <path fill="none" d="M16.83,22.01 L 122 22.01"/>
+      <path fill="none" d="M16.83,14.5 L 122 14.5"/>
+      <path fill="none" d="M16.83,7 L 122 7"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-8">
+      <path fill="none" d="M18.83,5 L 18.83 31.52"/>
+      <path fill="none" d="M69.41,5 L 69.41 31.52"/>
+      <path fill="none" d="M120,5 L 120 31.52"/>
+    </g>
+    <g class="plotpanel" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-9">
+      <g class="geometry" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-10">
+        <g class="color_Color.AlphaColorValue{Color.RGB{Float32},Float32}(Color.RGB{Float32}(0.0f0,0.74736935f0,1.0f0),1.0f0)" stroke="#FFFFFF" stroke-width="0.3" fill="#00BFFF" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-11">
+          <circle cx="18.83" cy="29.52" r="0.9"/>
+          <circle cx="21.36" cy="29.27" r="0.9"/>
+          <circle cx="23.88" cy="28.35" r="0.9"/>
+          <circle cx="26.41" cy="27.85" r="0.9"/>
+          <circle cx="28.94" cy="29.52" r="0.9"/>
+          <circle cx="31.47" cy="27.68" r="0.9"/>
+          <circle cx="34" cy="27.68" r="0.9"/>
+          <circle cx="36.53" cy="27.91" r="0.9"/>
+          <circle cx="39.06" cy="28.19" r="0.9"/>
+          <circle cx="41.59" cy="25.89" r="0.9"/>
+          <circle cx="44.12" cy="29.52" r="0.9"/>
+          <circle cx="46.65" cy="26.5" r="0.9"/>
+          <circle cx="49.18" cy="25.04" r="0.9"/>
+          <circle cx="51.71" cy="25.69" r="0.9"/>
+          <circle cx="54.24" cy="26.92" r="0.9"/>
+          <circle cx="56.77" cy="27.16" r="0.9"/>
+          <circle cx="59.3" cy="25.74" r="0.9"/>
+          <circle cx="61.82" cy="23.09" r="0.9"/>
+          <circle cx="64.35" cy="23.67" r="0.9"/>
+          <circle cx="66.88" cy="21.81" r="0.9"/>
+          <circle cx="69.41" cy="22.26" r="0.9"/>
+          <circle cx="71.94" cy="20.11" r="0.9"/>
+          <circle cx="74.47" cy="15.97" r="0.9"/>
+          <circle cx="77" cy="16.56" r="0.9"/>
+          <circle cx="79.53" cy="14.19" r="0.9"/>
+          <circle cx="82.06" cy="12.51" r="0.9"/>
+          <circle cx="84.59" cy="15.04" r="0.9"/>
+          <circle cx="87.12" cy="13.99" r="0.9"/>
+          <circle cx="89.65" cy="16.07" r="0.9"/>
+          <circle cx="92.18" cy="15.93" r="0.9"/>
+          <circle cx="94.71" cy="11.95" r="0.9"/>
+          <circle cx="97.24" cy="13.71" r="0.9"/>
+          <circle cx="99.77" cy="13.3" r="0.9"/>
+          <circle cx="102.29" cy="13.86" r="0.9"/>
+          <circle cx="104.82" cy="12.14" r="0.9"/>
+          <circle cx="107.35" cy="13.7" r="0.9"/>
+          <circle cx="109.88" cy="14.02" r="0.9"/>
+          <circle cx="112.41" cy="17.61" r="0.9"/>
+          <circle cx="114.94" cy="20.13" r="0.9"/>
+          <circle cx="117.47" cy="21.03" r="0.9"/>
+          <circle cx="120" cy="26.03" r="0.9"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-12">
+    <text x="15.83" y="29.52" text-anchor="end" dy="0.35em">0.0</text>
+    <text x="15.83" y="22.01" text-anchor="end" dy="0.35em">0.5</text>
+    <text x="15.83" y="14.5" text-anchor="end" dy="0.35em">1.0</text>
+    <text x="15.83" y="7" text-anchor="end" dy="0.35em">1.5</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="id0:fig-409b26ae68694ed28a0c894be703c9a1-element-13">
+    <text x="8.81" y="18.26" text-anchor="end" dy="0.35em">y</text>
+  </g>
+</g>
+</g>
+  <g id="id1:id1" transform="matrix(3.54330708661,0,0,3.54330708661,0.0,180.0)"><g class="plotroot xscalable yscalable" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-2">
+    <text x="69.41" y="39.19" text-anchor="middle" dy="0.6em">x</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-3">
+    <text x="18.83" y="32.52" text-anchor="middle" dy="0.6em">-5</text>
+    <text x="69.41" y="32.52" text-anchor="middle" dy="0.6em">0</text>
+    <text x="120" y="32.52" text-anchor="middle" dy="0.6em">5</text>
+  </g>
+  <g clip-path="url(#id1:fig-120074bc70c94d1089cbea5325b470ca-element-5)" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-4">
+    <g pointer-events="visible" opacity="1" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-6">
+      <rect x="16.83" y="5" width="105.17" height="26.52"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-7">
+      <path fill="none" d="M16.83,29.52 L 122 29.52"/>
+      <path fill="none" d="M16.83,22.01 L 122 22.01"/>
+      <path fill="none" d="M16.83,14.5 L 122 14.5"/>
+      <path fill="none" d="M16.83,7 L 122 7"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-8">
+      <path fill="none" d="M18.83,5 L 18.83 31.52"/>
+      <path fill="none" d="M69.41,5 L 69.41 31.52"/>
+      <path fill="none" d="M120,5 L 120 31.52"/>
+    </g>
+    <g class="plotpanel" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-9">
+      <g class="geometry" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-10">
+        <g class="color_Color.AlphaColorValue{Color.RGB{Float32},Float32}(Color.RGB{Float32}(0.0f0,0.74736935f0,1.0f0),1.0f0)" stroke="#FFFFFF" stroke-width="0.3" fill="#00BFFF" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-11">
+          <circle cx="18.83" cy="29.52" r="0.9"/>
+          <circle cx="21.36" cy="29.27" r="0.9"/>
+          <circle cx="23.88" cy="28.35" r="0.9"/>
+          <circle cx="26.41" cy="27.85" r="0.9"/>
+          <circle cx="28.94" cy="29.52" r="0.9"/>
+          <circle cx="31.47" cy="27.68" r="0.9"/>
+          <circle cx="34" cy="27.68" r="0.9"/>
+          <circle cx="36.53" cy="27.91" r="0.9"/>
+          <circle cx="39.06" cy="28.19" r="0.9"/>
+          <circle cx="41.59" cy="25.89" r="0.9"/>
+          <circle cx="44.12" cy="29.52" r="0.9"/>
+          <circle cx="46.65" cy="26.5" r="0.9"/>
+          <circle cx="49.18" cy="25.04" r="0.9"/>
+          <circle cx="51.71" cy="25.69" r="0.9"/>
+          <circle cx="54.24" cy="26.92" r="0.9"/>
+          <circle cx="56.77" cy="27.16" r="0.9"/>
+          <circle cx="59.3" cy="25.74" r="0.9"/>
+          <circle cx="61.82" cy="23.09" r="0.9"/>
+          <circle cx="64.35" cy="23.67" r="0.9"/>
+          <circle cx="66.88" cy="21.81" r="0.9"/>
+          <circle cx="69.41" cy="22.26" r="0.9"/>
+          <circle cx="71.94" cy="20.11" r="0.9"/>
+          <circle cx="74.47" cy="15.97" r="0.9"/>
+          <circle cx="77" cy="16.56" r="0.9"/>
+          <circle cx="79.53" cy="14.19" r="0.9"/>
+          <circle cx="82.06" cy="12.51" r="0.9"/>
+          <circle cx="84.59" cy="15.04" r="0.9"/>
+          <circle cx="87.12" cy="13.99" r="0.9"/>
+          <circle cx="89.65" cy="16.07" r="0.9"/>
+          <circle cx="92.18" cy="15.93" r="0.9"/>
+          <circle cx="94.71" cy="11.95" r="0.9"/>
+          <circle cx="97.24" cy="13.71" r="0.9"/>
+          <circle cx="99.77" cy="13.3" r="0.9"/>
+          <circle cx="102.29" cy="13.86" r="0.9"/>
+          <circle cx="104.82" cy="12.14" r="0.9"/>
+          <circle cx="107.35" cy="13.7" r="0.9"/>
+          <circle cx="109.88" cy="14.02" r="0.9"/>
+          <circle cx="112.41" cy="17.61" r="0.9"/>
+          <circle cx="114.94" cy="20.13" r="0.9"/>
+          <circle cx="117.47" cy="21.03" r="0.9"/>
+          <circle cx="120" cy="26.03" r="0.9"/>
+        </g>
+      </g>
+    </g>
+    <g class="geometry" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-12">
+      <g stroke="#0000FF" fill="#000000" fill-opacity="0.000" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-13">
+        <circle cx="49.18" cy="29.52" r="2"/>
+        <circle cx="79.53" cy="29.52" r="2"/>
+        <circle cx="104.82" cy="29.52" r="2"/>
+        <circle cx="49.18" cy="26.51" r="2"/>
+        <circle cx="79.53" cy="14.44" r="2"/>
+        <circle cx="104.82" cy="14.56" r="2"/>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-14">
+    <text x="15.83" y="29.52" text-anchor="end" dy="0.35em">0.0</text>
+    <text x="15.83" y="22.01" text-anchor="end" dy="0.35em">0.5</text>
+    <text x="15.83" y="14.5" text-anchor="end" dy="0.35em">1.0</text>
+    <text x="15.83" y="7" text-anchor="end" dy="0.35em">1.5</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="id1:fig-120074bc70c94d1089cbea5325b470ca-element-15">
+    <text x="8.81" y="18.26" text-anchor="end" dy="0.35em">y</text>
+  </g>
+</g>
+</g>
+  <g id="id2:id2" transform="matrix(3.54330708661,0,0,3.54330708661,0.0,360.0)"><g class="plotroot xscalable yscalable" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-2">
+    <text x="69.41" y="39.19" text-anchor="middle" dy="0.6em">x</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-3">
+    <text x="18.83" y="32.52" text-anchor="middle" dy="0.6em">-5</text>
+    <text x="69.41" y="32.52" text-anchor="middle" dy="0.6em">0</text>
+    <text x="120" y="32.52" text-anchor="middle" dy="0.6em">5</text>
+  </g>
+  <g clip-path="url(#id2:fig-d206682d14a34421be3309fbc40335f0-element-5)" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-4">
+    <g pointer-events="visible" opacity="1" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-6">
+      <rect x="16.83" y="5" width="105.17" height="26.52"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-7">
+      <path fill="none" d="M16.83,29.52 L 122 29.52"/>
+      <path fill="none" d="M16.83,22.01 L 122 22.01"/>
+      <path fill="none" d="M16.83,14.5 L 122 14.5"/>
+      <path fill="none" d="M16.83,7 L 122 7"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-8">
+      <path fill="none" d="M18.83,5 L 18.83 31.52"/>
+      <path fill="none" d="M69.41,5 L 69.41 31.52"/>
+      <path fill="none" d="M120,5 L 120 31.52"/>
+    </g>
+    <g class="plotpanel" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-9">
+      <g class="geometry" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-10">
+        <g class="color_Color.AlphaColorValue{Color.RGB{Float32},Float32}(Color.RGB{Float32}(0.0f0,0.74736935f0,1.0f0),1.0f0)" stroke="#FFFFFF" stroke-width="0.3" fill="#00BFFF" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-11">
+          <circle cx="18.83" cy="29.49" r="0.9"/>
+          <circle cx="21.36" cy="29.45" r="0.9"/>
+          <circle cx="23.88" cy="29.4" r="0.9"/>
+          <circle cx="26.41" cy="29.3" r="0.9"/>
+          <circle cx="28.94" cy="29.14" r="0.9"/>
+          <circle cx="31.47" cy="28.9" r="0.9"/>
+          <circle cx="34" cy="28.58" r="0.9"/>
+          <circle cx="36.53" cy="28.17" r="0.9"/>
+          <circle cx="39.06" cy="27.7" r="0.9"/>
+          <circle cx="41.59" cy="27.21" r="0.9"/>
+          <circle cx="44.12" cy="26.77" r="0.9"/>
+          <circle cx="46.65" cy="26.41" r="0.9"/>
+          <circle cx="49.18" cy="26.2" r="0.9"/>
+          <circle cx="51.71" cy="26.1" r="0.9"/>
+          <circle cx="54.24" cy="26.08" r="0.9"/>
+          <circle cx="56.77" cy="26.01" r="0.9"/>
+          <circle cx="59.3" cy="25.76" r="0.9"/>
+          <circle cx="61.82" cy="25.18" r="0.9"/>
+          <circle cx="64.35" cy="24.18" r="0.9"/>
+          <circle cx="66.88" cy="22.72" r="0.9"/>
+          <circle cx="69.41" cy="20.89" r="0.9"/>
+          <circle cx="71.94" cy="18.89" r="0.9"/>
+          <circle cx="74.47" cy="16.99" r="0.9"/>
+          <circle cx="77" cy="15.45" r="0.9"/>
+          <circle cx="79.53" cy="14.47" r="0.9"/>
+          <circle cx="82.06" cy="14.1" r="0.9"/>
+          <circle cx="84.59" cy="14.23" r="0.9"/>
+          <circle cx="87.12" cy="14.59" r="0.9"/>
+          <circle cx="89.65" cy="14.88" r="0.9"/>
+          <circle cx="92.18" cy="14.85" r="0.9"/>
+          <circle cx="94.71" cy="14.42" r="0.9"/>
+          <circle cx="97.24" cy="13.69" r="0.9"/>
+          <circle cx="99.77" cy="12.92" r="0.9"/>
+          <circle cx="102.29" cy="12.45" r="0.9"/>
+          <circle cx="104.82" cy="12.6" r="0.9"/>
+          <circle cx="107.35" cy="13.51" r="0.9"/>
+          <circle cx="109.88" cy="15.17" r="0.9"/>
+          <circle cx="112.41" cy="17.37" r="0.9"/>
+          <circle cx="114.94" cy="19.83" r="0.9"/>
+          <circle cx="117.47" cy="22.25" r="0.9"/>
+          <circle cx="120" cy="24.39" r="0.9"/>
+        </g>
+      </g>
+    </g>
+    <g class="geometry" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-12">
+      <g stroke="#FF0000" fill="#000000" fill-opacity="0.000" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-13">
+        <circle cx="104.65" cy="29.52" r="2"/>
+        <circle cx="80.21" cy="29.52" r="2"/>
+        <circle cx="49.84" cy="29.52" r="2"/>
+        <circle cx="104.65" cy="13.34" r="2"/>
+        <circle cx="80.21" cy="15.22" r="2"/>
+        <circle cx="49.84" cy="26.32" r="2"/>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-14">
+    <text x="15.83" y="29.52" text-anchor="end" dy="0.35em">0.0</text>
+    <text x="15.83" y="22.01" text-anchor="end" dy="0.35em">0.5</text>
+    <text x="15.83" y="14.5" text-anchor="end" dy="0.35em">1.0</text>
+    <text x="15.83" y="7" text-anchor="end" dy="0.35em">1.5</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="id2:fig-d206682d14a34421be3309fbc40335f0-element-15">
+    <text x="8.81" y="18.26" text-anchor="end" dy="0.35em">y</text>
+  </g>
+</g>
+</g>
+</svg>

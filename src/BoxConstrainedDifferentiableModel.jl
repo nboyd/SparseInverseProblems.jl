@@ -1,5 +1,5 @@
 export BoxConstrainedDifferentiableModel
-using NLopt
+using NLopt, SparseInverseProblems.Util
 # A simple forward model with box constrained parameters.
 # Assumes differentiablity of the forward operator.
 #
@@ -7,8 +7,16 @@ using NLopt
 #
 abstract BoxConstrainedDifferentiableModel <: ForwardModel
 
+#compute the measurement model
+psi(model :: BoxConstrainedDifferentiableModel, theta :: Vector{Float64}) =
+  error("psi not implemented for model $(typeof(model)).")
+
+#compute the jacobian of the forward model
+dpsi(model :: BoxConstrainedDifferentiableModel, theta :: Vector{Float64}) =
+    error("dpsi not implemented for model $(typeof(model)).")
+
 # Initial starting point for continuous optimization for the FW step.
-# Should return a good guess for $\arg\max_\theta \langle \psi(theta), v \rangle.$
+# Should return a good guess for $\arg\min_\theta \langle \psi(theta), v \rangle.$
 # Often computed using a grid.
 getStartingPoint(model :: BoxConstrainedDifferentiableModel, v :: Vector{Float64}) =
   error("getStartingPoint not implemented for model $(typeof(model)).")
@@ -18,11 +26,16 @@ getStartingPoint(model :: BoxConstrainedDifferentiableModel, v :: Vector{Float64
 parameterBounds(model :: BoxConstrainedDifferentiableModel) =
   error("parameterBounds not implemented for model $(typeof(model)).")
 
+#default implementation of phi in terms of psi --- you should probably overwride this!
+phi(model :: BoxConstrainedDifferentiableModel, parameters :: Matrix{Float64}, weights :: Vector{Float64}) =
+    sum([weights[i]*psi(model, vec(parameters[:,i])) for i = 1:size(parameters,2)])
+
 # Computes $\nabla_{\theta_1,\ldots,\theta_k} \sum_i \langle w_i \psi(\theta_i), v \rangle.$
 # Returns a matrix with the same shape as thetas (which is p by k).
+# You should probably overwride this!
 computeGradient(model :: BoxConstrainedDifferentiableModel, weights :: Vector{Float64},
   thetas :: Matrix{Float64}, v :: Vector{Float64}) =
-  error("computeGradient not implemented for model $(typeof(model)).")
+  hcat([weights[i]*vec(dpsi(model, vec(thetas[:,i]))'*v) for i = 1:size(thetas,2)]...)
 
 # Sets the parameters for the continuous optimizer.
 # Can be overwridden.
@@ -88,3 +101,6 @@ function localDescent_f_and_g!(points :: Vector{Float64}, gradient_storage :: Ve
   gradient_storage[:] = computeGradient(s.s, s.w, points, v_star)
   return l
 end
+
+# Only for squared loss
+solveFiniteDimProblem(model :: BoxConstrainedDifferentiableModel, loss :: LSLoss, thetas :: Matrix{Float64}, y :: Vector{Float64}, tau :: Float64) = nnlasso(hcat([psi(model, vec(thetas[:,i])) for i = 1:size(thetas,2)]...),y,tau)

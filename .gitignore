@@ -1,6 +1,8 @@
 *.jl.cov
 *.jl.mem
 *.html
+*.jemdoc
+*.png
 examples/smi/data
 examples/sysid/data
 examples/matrixcompletion/data
@@ -8,4 +10,5 @@ examples/matrixcompletion/data
 examples/smi/output
 examples/sysid/output
 examples/matrixcompletion/output
+website.adcd_website/eqs
 .DS_Store

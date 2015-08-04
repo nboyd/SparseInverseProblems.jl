@@ -1,4 +1,11 @@
-export nnlasso_kernel, lasso_kernel
+export nnlasso_kernel, lasso_kernel, nnlasso
+
+function nnlasso(A,y,tau; x :: Vector{Float64} = tau*rand(size(A,2))/(size(A,2)*2), l = ones(size(A,2)+1)/(2*size(A,2)))
+  K = full(A'*A);
+  b = full(A'*y);
+  return nnlasso_kernel(K,b,tau)
+end
+
 function nnlasso_kernel(K,b,tau; x :: Vector{Float64} = tau*rand(length(b))/(length(b)*2), l = ones(length(b)+1)/(2*length(b)))
   K = full(K)
   b = full(b)
