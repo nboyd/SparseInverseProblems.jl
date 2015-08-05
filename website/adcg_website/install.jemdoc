@@ -1,0 +1,13 @@
+# jemdoc: menu{MENU}{install.html},nodate,fwtitle,addpackage{amsfonts}
+= Install
+
+Our reference implementation of ADCG is a [http://julialang.org/ julia] package, available on github: [https://github.com/nboyd/SparseInverseProblems.jl].
+
+== install
+ To install the package run the following command in julia:
+
+~~~
+julia> Pkg.clone("git@github.com:nboyd/SparseInverseProblems.jl.git")
+~~~
+
+The package will be installed to ~/.julia/v0.4/SparseInverseProblems.

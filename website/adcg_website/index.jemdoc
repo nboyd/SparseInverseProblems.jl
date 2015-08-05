@@ -1,0 +1,39 @@
+# jemdoc: menu{MENU}{index.html},nodate,fwtitle,addpackage{amsfonts}
+= ADCG: conditional gradient method for sparse inverse problems
+
+The alternating descent conditional gradient method is designed to solve the following optimization problem:
+
+~~~
+{sparse inverse problem}
+\(
+  \hbox{minimize} \quad \ell(\Phi \mu - y)
+  \quad\hbox{subject to}\quad
+  |\mu|(\Theta) \le \tau
+\)
+~~~
+
+#REWRITE THIS. THIS IS AWFUL.
+The optimization variable $\mu$ is a measure over a parameter space $\Theta$.
+The linear operator $\Phi: \mathcal{M}(\Theta) \rightarrow \mathbb{R}^d$ is specified by a differentiable function $\phi : \Theta \rightarrow \mathbb{R}^d$.
+Finally, $\ell$ is a convex loss function (often the squared error).
+
+The constraint on the total variation of $\mu$ is the continuous analogue of the $l_1$ constraint in a basis pursuit denoising problem, and encourages /sparse/ solutions : that is, atomic measures supported on very few points.
+
+== slides
+For a brief introduction to these problems see these [slides.pdf slides].
+
+== paper
+For a full explanation of ADCG, along with examples of applications where ADCG can be applied, see the full paper.
+
+[http://arxiv.org/abs/1507.01562 The Alternating Descent Conditional Gradient Method for Sparse Inverse Problems] - N. Boyd, G. Schiebinger, B. Recht.
+
+
+== this website
+This website describes our software package, offers a simple tutorial, and (coming soon!) describes the three numerical examples from the above paper.
+
+== feedback
+If you have any suggestions or have found ADCG useful in your work please let us know!
+
+[http://www.stat.berkeley.edu/~nickboyd/ nick boyd]
+
+[http://www.stat.berkeley.edu/~geoff/ geoff schiebinger]

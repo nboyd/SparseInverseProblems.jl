@@ -1,0 +1,233 @@
+# jemdoc: menu{MENU}{tutorial.html},nodate,fwtitle,addpackage{amsfonts}
+= Tutorial
+
+== 1D gaussian deconvolution
+
+To demonstrate how to use our package, we'll walk through the process of applying ADCG to 1D gaussian deconvolution.
+
+In this problem, the task is to decompose a 1d function into a sum of a few shifted gaussian functions.
+In other words, we get noisy observations of a function $o(x)$ at a prespecified collection of points (often a 1d grid) and our task is to approximate $o(x)$ as a sum of a few weighted gaussians: $\hat{o}(x) = \sum_{i=1}^k w_i e^{-(c_i - x)^2}$.
+In some applications, the function $o(t)$ really /is/ a sum of a few shifted gaussians, in which case we hope to recover their positions.
+
+Even this simple model has applications in multi-return lidar.
+
+In pictures, what we want to do is this:
+
+~~~
+{}{img_left}{gauss_plots.svg}{}{}{}{}
+~~~
+
+The first plot shows the noisy observations of $o(x)$, the second plot shows the same observations along with the true $c_i$ and $w_i$, and the final plot shows the estimated weights and centers along with the denoised signal.
+In each plot we only observe the function $o(x)$ on a grid -- in this case the (x coordinates of) 40 blue dots.
+
+== 1d gaussian deconvolution as a sparse inverse problem
+
+Recall the standard sparse inverse problem:
+~~~
+{sparse inverse problem}
+\(
+  \hbox{minimize} \quad \ell(\Phi \mu - y)
+  \quad\hbox{subject to}\quad
+  |\mu|(\Theta) \le \tau
+\)
+~~~
+
+To phrase this problem as a sparse inverse problem we need to specify $\ell$, $y$, $\phi$, $d$, and $\Theta$.
+We'll denote the $x$-locations at which we observe $o(x)$ are $x_1, \ldots, x_d$ (in the plots above this would the 40 equally spaced points between -5 and 5) and the observed values as $y_1, \ldots, y_d$.
+Then we can take $d = 40, \Theta = \mathbb{R}, \ell = \| \cdot \|_2^2$. The last object we have to specify is $\psi$.
+$\psi(\theta) = (\exp(-\frac{(x_1 - \theta)^2}{2}), \ldots, \exp(-\frac{(x_d - \theta)^2}{2}))$.
+
+== using SparseInverseProblems.jl
+
+According to the ADCG paper, we'll need to write functions to evaluate a few things:
+- $\psi(\theta)$
+- $\frac{d}{d\theta} \psi(\theta)$
+- $\arg\min_\theta \langle v, \psi(\theta) \rangle$
+
+In terms of the julia package, this means we'll have to write an implementation of the +ForwardOperator+ abstract type.
+
+That might be difficult. For problems with parameter spaces that are hypercubes in $\mathbb{R}^p$, that don't need to be extremely fast, we've provided a default subclass of +ForwardOperator+.
+If you have a complicated example, or you want a faster implementation, you might have to look at the +ForwardOperator+ type.
+
+Our default abstract subtype is +BoxConstrainedDifferentiableModel+, for which we need to implement the following functions:
+
+~~~
+{from BoxConstrainedDifferentiableModel.jl}{}
+abstract BoxConstrainedDifferentiableModel <: ForwardModel
+
+#compute the measurement model
+psi(model :: BoxConstrainedDifferentiableModel, theta :: Vector{Float64})
+
+#compute the jacobian of the forward model
+dpsi(model :: BoxConstrainedDifferentiableModel, theta :: Vector{Float64})
+
+# Initial starting point for continuous optimization for the FW step.
+# Should return a good guess for $\arg\min_\theta \langle \psi(theta), v \rangle.$
+# Often computed using a grid.
+getStartingPoint(model :: BoxConstrainedDifferentiableModel, v :: Vector{Float64}) =
+  error("getStartingPoint not implemented for model $(typeof(model)).")
+
+# Box constraints on the parameters.
+# Returns a tuple of two vectors : lower bounds and upper bounds.
+parameterBounds(model :: BoxConstrainedDifferentiableModel)
+~~~
+
+The only function here that isn't self-explanatory is +getStartingPoint+. In order to solve the linear minimization problem:
+\( \arg\min_\theta \langle v, \psi(\theta) \rangle\)
++BoxConstrainedDifferentiableModel+ uses gradient descent --- but as the function in this problem is nonconvex it needs a good initialization.
+This is what +getStartingPoint+ provides. For simple examples with low dimensional parameter spaces, this is easy enough to do with gridding.
+
+== implementation
+
+We'll call our concrete subtype of +BoxConstrainedDifferentiableModel+ +SimpleExample+ for now.
+An instance of +SimpleExample+ will need to know the points $x_1, \ldots, x_d$, so a first definition of +SimpleExample+ might be:
+
+~~~
+{}{}
+immutable SimpleExample <: BoxConstrainedDifferentiableModel
+  evaluation_points :: Vector{Float64}
+end
+~~~
+
+We'll first implement +psi+ and +dpsi+:
+
+~~~
+{psi and dpsi}{}
+psf(theta, points) = exp(-(points .- theta).^2/2.0)
+deriv_psf(theta, points) = exp(-(points .- theta).^2/2.0).*(points .- theta)
+psi(s :: SimpleExample, parameters :: Vector{Float64}) = psf(parameters,s.evaluation_points)
+dpsi(s :: SimpleExample, parameters :: Vector{Float64}) = reshape(deriv_psf(parameters,s.evaluation_points),length(s.evaluation_points),1)
+~~~
+
+Not too hard.
+
+Next we'll provide an implementation of +parameterBounds+. Our single parameter is unconstrained:
+
+~~~
+{}{}
+parameterBounds(model :: SimpleExample) = ([-Inf], [Inf])
+~~~
+
+Finally we have to provide an initial starting point for the linear minimization step.
+The first step here is to modify the constructor for our type to take a grid of the parameter space and cache $\psi$ applied to those points:
+
+~~~
+{adding gridding to +SimpleExample+}{}
+immutable SimpleExample <: BoxConstrainedDifferentiableModel
+  evaluation_points :: Vector{Float64}
+  grid_points :: Vector{Float64}
+  grid :: Matrix{Float64}
+  SimpleExample(p,grid) = new(p,grid,psf(grid',p))
+end
+~~~
+
+Implementing +getStartingPoint+ is then easy: we simply check all of our grid points and return the one that minimizes the objective:
+
+~~~
+{}{}
+getStartingPoint(model :: SimpleExample, v :: Vector{Float64}) = [model.grid_points[indmin(model.grid'*v)]]
+~~~
+
+That's everything.
+
+The final implementation is supplied with the package at +~/.julia/v0.4/SparseInverseProblems/examples/simple_example+ , but we'll reproduce it here:
+
+~~~
+{simple_example.jl}{}
+using SparseInverseProblems
+import SparseInverseProblems: getStartingPoint, parameterBounds, psi, dpsi
+
+immutable SimpleExample <: BoxConstrainedDifferentiableModel
+  evaluation_points :: Vector{Float64}
+  grid_points :: Vector{Float64}
+  grid :: Matrix{Float64}
+  SimpleExample(p,grid) = new(p,grid,psf(grid',p))
+end
+
+psf(theta, points) = exp(-(points .- theta).^2/2.0)
+deriv_psf(theta, points) = exp(-(points .- theta).^2/2.0).*(points .- theta)
+
+psi(s :: SimpleExample, parameters :: Vector{Float64}) = psf(parameters,s.evaluation_points)
+
+dpsi(s :: SimpleExample, parameters :: Vector{Float64}) = reshape(deriv_psf(parameters,s.evaluation_points),length(s.evaluation_points),1)
+
+getStartingPoint(model :: SimpleExample, v :: Vector{Float64}) = [model.grid_points[indmin(model.grid'*v)]]
+
+parameterBounds(model :: SimpleExample) = ([-Inf], [Inf])
+
+~~~
+
+== a simple script
+
+The final step is to simulate some data and finally call ADCG with our new +ForwardModel+.
+The following script generates some noisy data and applies ADCG to the output. It outputs three figures like those above.
+
+~~~
+{example script}{}
+include("simple_example.jl")
+using Gadfly, Compose
+evaluation_points = -5.0:0.25:5.0
+model = SimpleExample(evaluation_points, -10.0:0.5:10.0)
+means = [-2.0,1.0,3.5]
+k = length(means)
+weights = ones(k)+randn(k)*0.1
+weights[1] = 0.2
+target = max(phi(model,means',weights) + randn(length(evaluation_points))*0.1,0.0);
+
+function callback(old_thetas,thetas, weights,output,old_obj_val)
+  #evalute current OV
+  new_obj_val,t = loss(LSLoss(), output - target)
+  println("gap = $(old_obj_val - new_obj_val)")
+  if old_obj_val - new_obj_val < 1E-1
+    return true
+  end
+  return false
+end
+
+(means_est,weights_est) = ADCG(model, LSLoss(), target, 10000.0; callback=callback)
+
+#draw the observations alone
+draw(SVG("observations.svg", 5inch, 2inch), plot(x=evaluation_points,y=target))
+
+#draw the observations with the locations and weights of the true blurs
+anno = Guide.annotation(
+       compose(context(), circle([means,means], [zeros(k),weights], [2mm]), fill(nothing),
+       stroke("blue")))
+draw(SVG("truth.svg", 5inch, 2inch), plot(x=evaluation_points,y=target,anno))
+
+
+#draw the estimation along with the predicted means/observations
+anno = Guide.annotation(
+       compose(context(), circle([means_est',means_est'], [zeros(k),weights_est], [2mm]), fill(nothing),
+       stroke("red")))
+output_est = phi(model, means_est, weights_est)
+draw(SVG("est.svg", 5inch, 2inch), plot(x=evaluation_points, y=output_est,anno))
+~~~
+
+The only part of this script worth investigating in detail is the actual call to ADCG:
+
++(means_est,weights_est) = ADCG(model, LSLoss(), target,4.0; callback=callback)+
+
+The returned values are pretty clear: a tuple of the estimated points along with their weights.
+The mysterious part of this line is the optional argument callback.
+Recall that a sparse inverse problem requires a parameter $\tau$ that constrains the total mass of the returned solution, and in practice controls the number of sources we find.
+Often we don't know how to set this parameter, in which case we've found that an early stopping heuristic works very well:
+~~~
+{}{}
+function callback(old_thetas,thetas, weights,output,old_obj_val)
+  new_obj_val,t = loss(LSLoss(), output - target)
+  println("gap = $(old_obj_val - new_obj_val)")
+  if old_obj_val - new_obj_val < 1E-1
+    return true
+  end
+  return false
+end
+~~~
+
+In each iteration of ADCG, we add a single source. Callback simply tells ADCG to stop as soon as the drop in objective value from adding a new source is less than $0.1$.
+
+To play around a bit more, try making the following modifications to the script and checking how they affect the output:
+- Make the bumps closer together, or add more bumps. When does ADCG fail?
+- Add more noise
+- Change the number of evaluation points, $d$
+- Change the size of the grid
